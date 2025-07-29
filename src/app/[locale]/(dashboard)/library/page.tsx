@@ -71,7 +71,7 @@ export default function LibraryPage() {
       setLoading(true);
       try {
         const params = new URLSearchParams();
-        params.set("size", "12");
+        params.set("size", "24");
 
         if (!reset && cursor) {
           params.set("nextPageCursor", cursor);

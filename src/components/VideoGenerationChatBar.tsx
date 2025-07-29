@@ -52,15 +52,15 @@ export function VideoGenerationChatBar({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEnhancing, setIsEnhancing] = useState(false);
 
-  // Set first style model as default when styleModels are loaded
+  // Set first style model as default when styleModels are loaded (only if no character is selected)
   useEffect(() => {
-    if (styleModels.length > 0 && !selections.style) {
+    if (styleModels.length > 0 && !selections.style && !selections.character) {
       setSelections(prev => ({
         ...prev,
         style: styleModels[0]
       }));
     }
-  }, [styleModels, selections.style]);
+  }, [styleModels, selections.style, selections.character]);
 
   const handleImageUpload = useCallback((file: File) => {
     if (file && file.type.startsWith("image/")) {
