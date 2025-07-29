@@ -106,7 +106,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="p-10 bg-background">
       {/* Hero Section - 3개 박스 */}
-      <section className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10 lg:mb-12">
+      <section className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10 lg:mb-12">
         {/* 상단 박스 (전체 너비) */}
         <div className="md:col-span-2 relative aspect-[16/9] rounded-xl overflow-hidden shadow-2xl">
           <video
@@ -160,7 +160,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Works Grid */}
-      <section>
+      <section className="max-w-6xl mx-auto">
         <h3 className="text-3xl font-bold mb-8 text-foreground">
           {t("explore.title")}
         </h3>
