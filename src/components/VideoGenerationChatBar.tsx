@@ -6,6 +6,7 @@ import { ModelSelectionModal } from "@/components/model-selection-modal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import type { VideoOptions, GenerationMode } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Settings2, Send, X, ImageIcon, Sparkles } from "lucide-react";
@@ -269,25 +270,41 @@ export function VideoGenerationChatBar({
                 </button>
               </div>
             )}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsModalOpen(true)}
-            >
-              <Settings2 className="h-5 w-5" />
-              <span className="sr-only">Open settings</span>
-            </Button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  <Settings2 className="h-5 w-5" />
+                  <span className="sr-only">Open settings</span>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="max-w-xs text-center">{t("chatBar.settingsTooltip")}</p>
+              </TooltipContent>
+            </Tooltip>
             {onEnhancePrompt && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={handleEnhancePrompt}
-                disabled={!prompt.trim() || isGenerating || isEnhancing}
-                className="hover:bg-primary/10 hover:text-primary"
-              >
-                <Sparkles className={`h-5 w-5 ${isEnhancing ? 'animate-spin' : ''}`} />
-                <span className="sr-only">{t("chatBar.enhance")}</span>
-              </Button>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={handleEnhancePrompt}
+                      disabled={!prompt.trim() || isGenerating || isEnhancing}
+                      className="hover:bg-primary/10 hover:text-primary disabled:opacity-50"
+                    >
+                      <Sparkles className={`h-5 w-5 ${isEnhancing ? 'animate-spin' : ''}`} />
+                      <span className="sr-only">{t("chatBar.enhance")}</span>
+                    </Button>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="max-w-xs text-center">{t("chatBar.enhanceTooltip")}</p>
+                </TooltipContent>
+              </Tooltip>
             )}
           </div>
           <Input

@@ -558,6 +558,8 @@
       "promptPlaceholder": "Describe the video you want to generate...",
       "enhance": "Enhance Prompt",
       "enhancing": "Enhancing...",
+      "enhanceTooltip": "Transform your prompt into a detailed, enhanced version for better video generation results",
+      "settingsTooltip": "Change model, style, character, aspect ratio, and duration settings",
       "generate": "Generate",
       "generating": "Generating...",
       "mode": {

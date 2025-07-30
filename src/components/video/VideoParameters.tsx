@@ -39,9 +39,8 @@ export function VideoParameters({ lora, taskId, width, height, numFrames, inputI
 
   // Calculate duration from frames
   const calculateDuration = (frames: number): string => {
-    if (frames <= 41) return "2s";
     if (frames <= 81) return "4s";
-    if (frames <= 161) return "8s";
+    if (frames <= 101) return "6s";
     
     const fps = 20;
     const seconds = Math.round(frames / fps);

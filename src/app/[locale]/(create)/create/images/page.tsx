@@ -1540,7 +1540,7 @@ export default function CreatePage() {
                             className="w-full border rounded-md px-3 py-2"
                           >
                             <option value={81}>81</option>
-                            <option value={161}>161</option>
+                            <option value={121}>121</option>
                           </select>
                         </div>
                       </div>
